@@ -6,10 +6,10 @@ import datetime
 #import contextlib
 from concurrent.futures import ProcessPoolExecutor as Pool
 class JobSubmission():
-	def __init__(self, submission_name, cluster_connection, ko_name_to_set_dict, simulation_output_path, errorfile_path, outfile_path, runfiles_path, reps_of_unique_ko, wholecell_model_master_dir):
+	def __init__(self, submission_name, cluster_connection, ko_name_to_set_dict, simulation_output_path, errorfile_path, outfile_path, runfiles_path, reps_of_unique_ko, wholecell_model_master_dir, temp_storage_path = '/space/oc13378/myprojects/github/uob/wc/mg/oc2/whole_cell_modelling_suite/tmp_storage'):
 		self.submission_name = submission_name
 		self.submission_file_name = self.submission_name + '_sub_file.sh'
-		self.temp_storage_path = '/space/oc13378/myprojects/github/uob/wc/mg/oc2/whole_cell_modelling_suite/tmp_storage'
+		self.temp_storage_path = temp_storage_path
 		self.ko_sets_file_name = 'ko_sets.list'
 		self.ko_set_names_file_name = 'ko_set_names.list'
 		self.unique_job_name = self.createUniqueJobName(self.submission_name + '_')
